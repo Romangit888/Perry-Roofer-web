@@ -17,6 +17,7 @@
     background: var(--bg);
     color: var(--fg);
     font-feature-settings: "ss01", "cv11";
+    overflow-x: hidden;
   }
   ::selection {
     background: #C2410C;

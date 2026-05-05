@@ -39,7 +39,7 @@ export function ActivityTicker() {
     <div
       aria-live="polite"
       aria-hidden={!visible || dismissed}
-      className={`fixed z-40 left-3 sm:left-5 bottom-3 sm:bottom-5 max-w-[calc(100vw-1.5rem)] sm:max-w-[22rem] transition-all duration-500 ${
+      className={`fixed z-40 left-3 sm:left-5 bottom-20 md:bottom-5 max-w-[calc(100vw-1.5rem)] sm:max-w-[22rem] transition-all duration-500 ${
         visible && !dismissed ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0 pointer-events-none"
       }`}
     >
