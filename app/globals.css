@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #F7F3EE;
+    --fg: #0F1B2D;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    background: #C2410C;
+    color: #FFF5EC;
+  }
+  :focus-visible {
+    outline: 2px solid #C2410C;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-tight {
+    @apply container max-w-[1200px];
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-copper-500;
+  }
+  .eyebrow-light {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-copper-300;
+  }
+  .rule {
+    @apply h-px w-12 bg-copper-500/60;
+  }
+
+  /* Hero CTA — wipe-fill on hover, arrow pushes through */
+  .hero-cta {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .hero-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #762807; /* copper-700 */
+    transform: translateY(101%);
+    transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: -1;
+  }
+  .hero-cta:hover::before,
+  .hero-cta:focus-visible::before {
+    transform: translateY(0);
+  }
+  .hero-cta .hero-cta__arrow {
+    transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hero-cta:hover .hero-cta__arrow,
+  .hero-cta:focus-visible .hero-cta__arrow {
+    transform: translateX(6px) rotate(-12deg);
+  }
+  .hero-cta .hero-cta__rule {
+    position: absolute;
+    left: 1.75rem;
+    right: 1.75rem;
+    bottom: 0.75rem;
+    height: 2px;
+    background: rgba(247, 243, 238, 0.6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1) 60ms;
+  }
+  .hero-cta:hover .hero-cta__rule,
+  .hero-cta:focus-visible .hero-cta__rule {
+    transform: scaleX(1);
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(15,27,45,0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15,27,45,0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Hide scrollbars on horizontal scroll rows */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Hand-drawn underline (SVG bg) for emphasized words in display headings */
+  .scribble {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 14' preserveAspectRatio='none'><path d='M2 9 C 50 2, 110 14, 218 5' stroke='%23C2410C' stroke-width='3.5' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: 0 92%;
+    background-size: 100% 0.42em;
+    padding-bottom: 0.12em;
+  }
+
+  /* Slanted asymmetric corner mask used on featured cards */
+  .corner-snip {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.25rem), calc(100% - 2.25rem) 100%, 0 100%);
+  }
+}
