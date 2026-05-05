@@ -28,7 +28,7 @@ export function Financing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-3xl bg-ink text-paper p-5 sm:p-8 md:p-14 shadow-lift"
+          className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-ink text-paper p-4 sm:p-8 md:p-14 shadow-lift"
         >
           <div className="absolute inset-0 bg-grid-dark opacity-30" aria-hidden />
           <div
@@ -42,7 +42,7 @@ export function Financing() {
                 <BadgeDollarSign className="h-4 w-4" />
                 $0-down financing
               </span>
-              <h2 className="mt-4 font-display text-display-lg text-balance">
+              <h2 className="mt-4 font-display text-3xl sm:text-display-lg text-balance leading-tight">
                 A new roof for less than your phone bill split three ways.
               </h2>
               <p className="mt-5 max-w-md text-paper/75 leading-relaxed text-pretty">
@@ -68,7 +68,7 @@ export function Financing() {
             </div>
 
             {/* Calculator */}
-            <div className="rounded-2xl bg-paper text-ink p-5 sm:p-7 md:p-8 shadow-lift">
+            <div className="rounded-2xl bg-paper text-ink p-4 sm:p-7 md:p-8 shadow-lift">
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="font-display text-lg sm:text-xl font-semibold">Monthly payment estimator</h3>
                 <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.14em] text-ink/45 whitespace-nowrap">
